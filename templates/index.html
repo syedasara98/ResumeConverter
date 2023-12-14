@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeNinja's Resume Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+
+        form {
+            margin: auto;
+            width: 50%;
+            margin-top: 30px;
+        }
+
+        label {
+            color: black;
+            font-size: 20px;
+        }
+
+        input[type=file] {
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        input[type=submit] {
+            padding: 15px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: darkred;
+        }
+
+        .corner-image {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <img class="corner-image" src="/home/codeninja/Hackathon/resume_converter/templates/CodeNinja-logo-profile.jpg" alt="Corner Image">
+    <h1>CodeNinja's Resume Converter</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="resume">Upload Resume:</label>
+        <br>
+        <input type="file" name="resume" accept=".docx">
+        <br>
+        <input type="submit" value="Convert and Download">
+    </form>
+    {% if error %}
+        <p style="color: red; text-align: center;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
